@@ -52,13 +52,7 @@ Copy code
 npx cypress open
 This will open the Cypress test runner. You can select and run the tests from the Cypress interface.
 
-2. Run tests in Headless Mode:
-If you want to run the tests in headless mode (without the GUI), use the following command:
 
-bash
-Copy code
-npx cypress run
-This will run all the tests in headless mode and output the results in the terminal.
 
 Test Structure
 The test cases are written using Cucumber syntax (Gherkin) and are located in the following structure:
@@ -95,9 +89,3 @@ Custom Cypress commands can be added in cypress/support/commands.js. These are r
 Reporting
 Once tests are executed, you can view the detailed reports and logs in the Cypress Dashboard or output files (depending on the configuration).
 
-Troubleshooting
-If you face any issues while running the tests:
-
-Check your Magento environment: Ensure the Magento 2 site is accessible and all services are running.
-Review the Cypress console: Errors or issues will be logged in the Cypress test runner console.
-Check feature and step definitions: Ensure your .feature files and step definitions are correctly implemented.
