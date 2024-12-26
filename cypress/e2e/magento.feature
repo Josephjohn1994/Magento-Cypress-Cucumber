@@ -8,6 +8,10 @@ Background:
     And I submit the form
     Then I should see a welcome message indicating successful account creation
 
+    Scenario: Logging in after successful sign-up
+    Given I am on the "Sign In" page
+    When I log in with my credentials and click on sign in button
+    Then I should be successfully logged in and redirected to the homepage
     
     Scenario: User tries to sign up with an already registered email
     When I fill in the sign-up form with an already registered email

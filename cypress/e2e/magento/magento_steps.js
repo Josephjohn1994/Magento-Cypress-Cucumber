@@ -7,7 +7,7 @@ Given('I am on the "Create an Account" page', () => {
     account.visit()
   });
   When('I fill in the sign-up form with valid details', () => {
-    account.fillSignUpForm('James', 'Doe', 'jamesd@example.com', 'Password123');
+    account.fillSignUpForm('James', 'Doe', 'jamespr@example.com', 'Password123');
   });
 
   When('I submit the form', () => {
@@ -20,6 +20,21 @@ Given('I am on the "Create an Account" page', () => {
        
     account.verifyAccountCreation();
   });
+
+  //Logging in after successful sign-up
+  Given('I am on the "Sign In" page', () => {
+    account.visitsignin()
+  });
+  When('I log in with my credentials and click on sign in button', () => {
+    account.fillsignin('jamespr@example.com','Password123')
+
+  });
+
+  Then('I should be successfully logged in and redirected to the homepage', () => {
+       
+    account.verifyAccountCreation();
+  });
+
 
   //User tries to sign up with an already registered email
   When('I fill in the sign-up form with an already registered email', () => {
