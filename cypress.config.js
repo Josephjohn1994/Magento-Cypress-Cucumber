@@ -8,5 +8,8 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/e2e/*.feature",       
   },
+  env:{
+    URL:'https://magento.softwaretestingboard.com/'
+  }
 });
 

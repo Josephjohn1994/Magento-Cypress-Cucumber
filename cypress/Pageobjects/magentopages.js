@@ -1,31 +1,45 @@
 export class SignUpPage {
-    visit() {
-      cy.visit('https://magento.softwaretestingboard.com/');
-      cy.get("header[class='page-header'] li:nth-child(3) a:nth-child(1)").click();
+    
+  weblocators={
+
+   createaccount:"header[class='page-header'] li:nth-child(3) a:nth-child(1)",
+   firstnamee:"#firstname",
+   lastnamee:"#lastname",
+   emailadress:"#email_address",
+   passwordd:"#password",
+   passworddconfirm:"#password-confirmation",
+   submitbuttonn:"#form-validate > div > div.primary > button > span",
+   accountcreationmessagee:"body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.greet.welcome > span"
+}
+  
+  
+  visit() {
+      cy.visit(Cypress.env('URL'));
+      cy.get(this.weblocators.createaccount).click();
     }
   
     fillSignUpForm(firstName, lastName, email, password) {
-        cy.get('#firstname').type(firstName);
-        cy.get('#lastname').type(lastName);
-        cy.get('#email_address').type(email);
-        cy.get('#password').type(password);
-        cy.get('#password-confirmation').type(password);
+        cy.get(this.weblocators.firstnamee).type(firstName);
+        cy.get(this.weblocators.lastnamee).type(lastName);
+        cy.get(this.weblocators.emailadress).type(email);
+        cy.get(this.weblocators.passwordd).type(password);
+        cy.get(this.weblocators.passworddconfirm).type(password);
       }
 
       incorectpassword(firstName, lastName, email, password,incorrectpassword) {
-        cy.get('#firstname').type(firstName);
-        cy.get('#lastname').type(lastName);
-        cy.get('#email_address').type(email);
-        cy.get('#password').type(password);
-        cy.get('#password-confirmation').type(incorrectpassword);
+        cy.get(this.weblocators.firstnamee).type(firstName);
+        cy.get(this.weblocators.lastnamee).type(lastName);
+        cy.get(this.weblocators.emailadress).type(email);
+        cy.get(this.weblocators.passwordd).type(password);
+        cy.get(this.weblocators.passworddconfirm).type(incorrectpassword);
       }
   
     submitForm() {
-      cy.get('#form-validate > div > div.primary > button > span').click();
+      cy.get(this.weblocators.submitbuttonn).click();
     }
   
     verifyAccountCreation() {
-      cy.get("body > div.page-wrapper > header > div.panel.wrapper > div > ul > li.greet.welcome > span").should('contain','Welcome');
+      cy.get(this.weblocators.accountcreationmessagee).should('contain','Welcome');
     }
 
     verifyErrorMessage(message) {

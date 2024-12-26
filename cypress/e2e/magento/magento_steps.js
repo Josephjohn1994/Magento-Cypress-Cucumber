@@ -7,7 +7,7 @@ Given('I am on the "Create an Account" page', () => {
     account.visit()
   });
   When('I fill in the sign-up form with valid details', () => {
-    account.fillSignUpForm('Johna', 'Doe', 'johnvj@example.com', 'Password123');
+    account.fillSignUpForm('James', 'Doe', 'jamesd@example.com', 'Password123');
   });
 
   When('I submit the form', () => {
